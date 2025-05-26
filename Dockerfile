@@ -44,5 +44,7 @@ COPY --from=production-deps /usr/src/app/node_modules /usr/src/app/node_modules
 COPY --from=build /usr/src/app/build /usr/src/app/build
 COPY --from=build /usr/src/app/public /usr/src/app/public
 COPY --from=build /usr/src/app/package.json /usr/src/app/package.json
+CMD ["npx", "remix-serve", "./build/index.js", "--port", "80", "--hostname", "0.0.0.0"]
 
-CMD [ "/bin/sh", "-c", "./node_modules/.bin/remix-serve ./build/index.js" ]
+
+
